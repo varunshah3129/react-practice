@@ -16,7 +16,7 @@ A reusable Frequently Asked Questions (FAQ) component built with React, TypeScri
 - Smooth animations and transitions
 - Responsive design
 
-**Repository:** [faq-component](https://github.com/varunshah3129/faq-component)
+**Repository:** Part of [react-practice](https://github.com/varunshah3129/react-practice)
 
 **Location:** `./faq-component/`
 
