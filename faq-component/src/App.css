@@ -1,0 +1,167 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} */
+
+.App {
+  min-height: 100vh; /* Full viewport height */
+  padding: 2rem; /* Add some padding */
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Main container for the entire FAQ section */
+.faq-container {
+  max-width: 800px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the container */
+  padding: 2rem; /* Add spacing around the container */
+}
+
+/* Title styling */
+.faq-title {
+  font-size: 2rem; /* Large title */
+  margin-bottom: 1.5rem; /* Space below title */
+  color: #333; /* Dark text color */
+  text-align: center; /* Center the title */
+}
+
+/* Container for the list of FAQ items */
+.faq-list {
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem; /* Space between each FAQ item */
+}
+
+/* Container for each individual FAQ item */
+.faq-item {
+  border: 1px solid #e0e0e0; /* Light border around each item */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide content that overflows (for smooth animation) */
+  background-color: #fff; /* White background */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+/* When FAQ item is open, add a shadow for depth */
+.faq-item.open {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* The button that contains the question */
+.faq-question {
+  width: 100%; /* Full width of container */
+  padding: 1rem 1.5rem; /* Spacing inside button */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between question and icon */
+  align-items: center; /* Vertically center content */
+  background-color: #f8f9fa; /* Light gray background */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Show pointer cursor on hover */
+  font-size: 1rem; /* Text size */
+  font-weight: 600; /* Bold text */
+  text-align: left; /* Align text to left */
+  transition: background-color 0.2s ease; /* Smooth background color change */
+}
+
+/* Change background when hovering over question */
+.faq-question:hover {
+  background-color: #e9ecef; /* Slightly darker gray */
+}
+
+/* Container for the question text */
+.faq-question-text {
+  flex: 1; /* Take up available space */
+  margin-right: 1rem; /* Space between text and icon */
+}
+
+/* The plus/minus icon */
+.faq-icon {
+  font-size: 1.5rem; /* Larger icon size */
+  font-weight: bold; /* Bold icon */
+  color: #646cff; /* Blue color for icon */
+  transition: transform 0.3s ease; /* Smooth rotation animation */
+  flex-shrink: 0; /* Don't shrink the icon */
+}
+
+/* Rotate icon when item is open (optional enhancement) */
+.faq-item.open .faq-icon {
+  transform: rotate(180deg); /* Rotate 180 degrees */
+}
+
+/* Container for the answer */
+.faq-answer {
+  padding: 1rem 1.5rem; /* Spacing inside answer area */
+  background-color: #fff; /* White background */
+  border-top: 1px solid #e0e0e0; /* Border separating question and answer */
+  animation: slideDown 0.3s ease; /* Animation when opening */
+}
+
+/* Paragraph inside answer */
+.faq-answer p {
+  margin: 0; /* Remove default margin */
+  line-height: 1.6; /* Better line spacing for readability */
+  color: #555; /* Slightly darker gray for text */
+}
+
+/* Animation for sliding down the answer */
+@keyframes slideDown {
+  from {
+    opacity: 0; /* Start invisible */
+    transform: translateY(-10px); /* Start slightly above */
+  }
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End in normal position */
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 1rem; /* Less padding on mobile */
+  }
+  
+  .faq-question {
+    padding: 0.75rem 1rem; /* Less padding on mobile */
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+  
+  .faq-answer {
+    padding: 0.75rem 1rem; /* Less padding on mobile */
+  }
+}
