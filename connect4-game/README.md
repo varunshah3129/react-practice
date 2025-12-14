@@ -21,7 +21,7 @@ A classic Connect 4 game built with React, TypeScript, and Vite. Two players tak
 
 ## 📸 Screenshot
 
-![Connect 4 Game](./screenshots/connect4-game.png)
+![Connect 4 Game](screenshots/connect4-game.png)
 
 ## 🛠️ Getting Started
 
