@@ -23,9 +23,13 @@ A 4-digit security code input component for two-factor authentication (2FA). Fea
 - ✅ Attempts counter display
 - ✅ Form validation against hardcoded code
 
-## 📸 Screenshot
+## 📸 Screenshots
 
-![Security Code Input](screenshots/security-code-input.png)
+**Valid Code:**
+![Valid Code](screenshots/valid_code.png)
+
+**Invalid Code (with attempts counter):**
+![Invalid Code](screenshots/invalid_code.png)
 
 ## 🛠️ Getting Started
 
