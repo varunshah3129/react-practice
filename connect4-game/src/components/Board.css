@@ -1,0 +1,17 @@
+/* Main board container - holds all rows and cells */
+.board {
+    display: flex;                    /* Use flexbox layout */
+    flex-direction: column;            /* Stack rows vertically */
+    gap: 5px;                         /* Space between rows */
+    padding: 20px;                    /* Padding around the board */
+    background-color: #3498db;        /* Blue background color (Connect 4 board color) */
+    border-radius: 10px;              /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Shadow for depth */
+  }
+  
+  /* Container for each row of cells */
+  .board-row {
+    display: flex;                    /* Use flexbox for horizontal layout */
+    gap: 5px;                         /* Space between cells in a row */
+    justify-content: center;           /* Center the row horizontally */
+  }

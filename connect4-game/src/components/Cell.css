@@ -1,0 +1,38 @@
+/* Main cell container - represents one slot in the Connect 4 board */
+.cell {
+  width: 60px;                    /* Width of each cell */
+  height: 60px;                   /* Height of each cell */
+  border: 2px solid #333;        /* Border around the cell */
+  background-color: #fff;       /* White background (empty cell) */
+  border-radius: 50%;            /* Make it circular */
+  display: flex;                 /* Use flexbox for centering */
+  align-items: center;           /* Center content vertically */
+  justify-content: center;        /* Center content horizontally */
+  cursor: pointer;               /* Show pointer cursor on hover */
+  transition: background-color 0.2s; /* Smooth color transition */
+}
+
+/* Hover effect when mouse is over the cell */
+.cell:hover {
+  background-color: #f0f0f0;     /* Light gray background on hover */
+}
+
+/* The disc that appears inside the cell when a player places a disc */
+.disc {
+  width: 50px;                   /* Slightly smaller than cell */
+  height: 50px;                  /* Slightly smaller than cell */
+  border-radius: 50%;            /* Make it circular */
+  transition: transform 0.3s ease; /* Smooth animation when disc appears */
+}
+
+/* Red player's disc styling */
+.disc-red {
+  background-color: #e74c3c;     /* Red color */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}
+
+/* Yellow player's disc styling */
+.disc-yellow {
+  background-color: #f1c40f;     /* Yellow color */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}

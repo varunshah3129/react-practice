@@ -1,0 +1,29 @@
+/* Container for the game status display */
+.game-status {
+  text-align: center;        /* Center the text horizontally */
+  margin-bottom: 20px;       /* Space below the status message */
+}
+
+/* The status message text */
+.status-message {
+  font-size: 1.5rem;         /* Large font size */
+  font-weight: bold;          /* Bold text */
+  color: #333;               /* Dark gray color */
+  margin: 0;                 /* Remove default margin */
+}
+
+/* Special styling when there's a winner */
+.status-message.winner {
+  color: #27ae60;            /* Green color for winner */
+  animation: pulse 1s ease-in-out infinite;  /* Pulsing animation */
+}
+
+/* Keyframe animation for the pulse effect */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);      /* Normal size */
+  }
+  50% {
+    transform: scale(1.05);   /* Slightly larger (5% bigger) */
+  }
+}

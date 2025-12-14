@@ -1,0 +1,18 @@
+/* Main app container */
+.app {
+  display: flex;                    /* Use flexbox layout */
+  flex-direction: column;            /* Stack children vertically */
+  align-items: center;              /* Center items horizontally */
+  justify-content: center;          /* Center items vertically */
+  min-height: 100vh;                /* Full viewport height */
+  padding: 20px;                     /* Padding around the app */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient background */
+}
+
+/* Game title styling */
+.app h1 {
+  color: white;                     /* White text color */
+  font-size: 3rem;                   /* Large font size */
+  margin-bottom: 20px;               /* Space below title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  /* Text shadow for depth */
+}
