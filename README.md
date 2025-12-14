@@ -31,6 +31,15 @@ A 4-digit security code input component for two-factor authentication with auto-
 
 ---
 
+### 4. [Histogram Visualization](./histogram-visualization/)
+A histogram visualization tool that fetches numbers from an API and displays frequency distribution. Features both CSS bars and Highcharts implementations.
+
+**Technologies:** React, TypeScript, Vite, CSS, Highcharts
+
+[View Project Details →](./histogram-visualization/)
+
+---
+
 ## 🚀 Getting Started
 
 Each project is independent and can be run separately:
