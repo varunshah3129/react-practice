@@ -54,7 +54,7 @@
 }
 
 /* Title styling */
-.faq-title {
+.title {
   font-size: 2rem; /* Large title */
   margin-bottom: 1.5rem; /* Space below title */
   color: #333; /* Dark text color */
@@ -89,18 +89,19 @@
   display: flex; /* Use flexbox for layout */
   justify-content: space-between; /* Space between question and icon */
   align-items: center; /* Vertically center content */
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: transparent; /* No background */
   border: none; /* Remove default button border */
   cursor: pointer; /* Show pointer cursor on hover */
   font-size: 1rem; /* Text size */
   font-weight: 600; /* Bold text */
   text-align: left; /* Align text to left */
+  color: #333; /* Black text color */
   transition: background-color 0.2s ease; /* Smooth background color change */
 }
 
 /* Change background when hovering over question */
 .faq-question:hover {
-  background-color: #e9ecef; /* Slightly darker gray */
+  background-color: transparent; /* No background on hover */
 }
 
 /* Container for the question text */

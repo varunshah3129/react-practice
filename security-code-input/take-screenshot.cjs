@@ -82,3 +82,4 @@ const puppeteer = require('puppeteer');
   await browser.close();
   console.log('Screenshot saved to screenshots/security-code-input.png');
 })();
+

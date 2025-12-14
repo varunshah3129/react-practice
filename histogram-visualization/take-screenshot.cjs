@@ -22,3 +22,4 @@ const puppeteer = require('puppeteer');
   await browser.close();
   console.log('Screenshot saved to screenshots/histogram-visualization.png');
 })();
+

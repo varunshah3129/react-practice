@@ -7,59 +7,83 @@ const puppeteer = require('puppeteer');
   // Set viewport size
   await page.setViewport({ width: 1200, height: 900 });
   
-  // Navigate to the Connect 4 app (make sure it's running on port 5173)
-  // If FAQ is on 5173, Connect 4 might be on 5174 or another port
-  await page.goto('http://localhost:5173', { waitUntil: 'networkidle0' });
+  // Try different ports to find Connect 4
+  const ports = [5173, 5174, 5175, 5176, 5177];
+  let foundConnect4 = false;
   
-  // Wait for page to load
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  
-  // Check if this is the Connect 4 page by looking for the title
-  const pageTitle = await page.title();
-  const pageContent = await page.content();
-  
-  // If it's not Connect 4, try port 5174
-  if (!pageContent.includes('Connect 4') && !pageContent.includes('connect4')) {
-    console.log('Not Connect 4 on 5173, trying 5174...');
-    await page.goto('http://localhost:5174', { waitUntil: 'networkidle0' });
-    await new Promise(resolve => setTimeout(resolve, 2000));
+  for (const port of ports) {
+    try {
+      console.log(`Trying port ${port}...`);
+      await page.goto(`http://localhost:${port}`, { waitUntil: 'networkidle0', timeout: 5000 });
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Check page content to see if it's Connect 4
+      const pageContent = await page.content();
+      const pageText = await page.evaluate(() => document.body.innerText);
+      
+      // Look for Connect 4 indicators
+      if (pageText.includes('Connect 4') || pageText.includes('Current Player') || pageContent.includes('board-row')) {
+        console.log(`Found Connect 4 on port ${port}!`);
+        foundConnect4 = true;
+        break;
+      }
+    } catch (e) {
+      console.log(`Port ${port} failed: ${e.message}`);
+      continue;
+    }
   }
   
-  // Wait a bit for any animations
+  if (!foundConnect4) {
+    console.log('Connect 4 not found on any port. Taking screenshot of last tried port.');
+  }
+  
+  // Wait for page to fully load
   await new Promise(resolve => setTimeout(resolve, 1000));
   
   // Play the game - click on columns to drop discs
-  // Get all cells in the first row (these are the column headers/clickable areas)
-  const boardRows = await page.$$('div.board-row');
-  if (boardRows.length > 0) {
-    // Get the first row (top row) - clicking cells here will drop discs
-    const firstRowCells = await boardRows[0].$$('.cell');
-    
-    if (firstRowCells.length > 0) {
-      // Click column 0 (first column) - Red player
-      await firstRowCells[0].click();
-      await new Promise(resolve => setTimeout(resolve, 600));
+  try {
+    // Get all board rows
+    const boardRows = await page.$$('div.board-row');
+    if (boardRows.length > 0) {
+      // Get the first row (top row) - clicking cells here will drop discs
+      const firstRowCells = await boardRows[0].$$('.cell');
       
-      // Click column 1 (second column) - Yellow player
-      if (firstRowCells.length > 1) {
-        await firstRowCells[1].click();
-        await new Promise(resolve => setTimeout(resolve, 600));
+      if (firstRowCells.length > 0) {
+        console.log('Playing Connect 4...');
+        
+        // Click column 0 (first column) - Red player
+        await firstRowCells[0].click();
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Click column 1 (second column) - Yellow player
+        if (firstRowCells.length > 1) {
+          await firstRowCells[1].click();
+          await new Promise(resolve => setTimeout(resolve, 800));
+        }
+        
+        // Click column 0 again - Red player
+        await firstRowCells[0].click();
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Click column 2 - Yellow player
+        if (firstRowCells.length > 2) {
+          await firstRowCells[2].click();
+          await new Promise(resolve => setTimeout(resolve, 800));
+        }
+        
+        // Click column 0 again - Red player
+        await firstRowCells[0].click();
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Click column 1 - Yellow player
+        if (firstRowCells.length > 1) {
+          await firstRowCells[1].click();
+          await new Promise(resolve => setTimeout(resolve, 800));
+        }
       }
-      
-      // Click column 0 again - Red player
-      await firstRowCells[0].click();
-      await new Promise(resolve => setTimeout(resolve, 600));
-      
-      // Click column 2 - Yellow player
-      if (firstRowCells.length > 2) {
-        await firstRowCells[2].click();
-        await new Promise(resolve => setTimeout(resolve, 600));
-      }
-      
-      // Click column 0 again - Red player (3rd time)
-      await firstRowCells[0].click();
-      await new Promise(resolve => setTimeout(resolve, 600));
     }
+  } catch (e) {
+    console.log('Error playing game:', e.message);
   }
   
   // Take screenshot
@@ -69,5 +93,6 @@ const puppeteer = require('puppeteer');
   });
   
   await browser.close();
-  console.log('Connect 4 screenshot saved to screenshots/connect4-game.png');
+  console.log('Screenshot saved to screenshots/connect4-game.png');
 })();
+
