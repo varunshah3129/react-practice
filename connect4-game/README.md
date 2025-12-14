@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
+# Connect 4 Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A classic Connect 4 game built with React, TypeScript, and Vite. Two players take turns dropping colored discs into a grid, aiming to connect four of their discs in a row (horizontal, vertical, or diagonal).
 
-Currently, two official plugins are available:
+## 🚀 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **CSS** - Styling and animations
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ Interactive game board with 6 rows × 7 columns
+- ✅ Turn-based gameplay (Red and Yellow players)
+- ✅ Win detection (4 in a row: horizontal, vertical, diagonal)
+- ✅ Draw detection when board is full
+- ✅ Reset functionality to start a new game
+- ✅ Smooth animations and modern UI
+- ✅ TypeScript for type safety
 
-## Expanding the ESLint configuration
+## 📸 Screenshot
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Connect 4 Game](./screenshots/connect4-game.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start development server
+npm run dev
 ```
+
+The app will be available at `http://localhost:5173`
+
+### Build
+
+```bash
+# Build for production
+npm run build
+```
+
+## 📁 Project Structure
+
+```
+connect4-game/
+├── src/
+│   ├── components/
+│   │   ├── Board.tsx          # Game board component
+│   │   ├── Cell.tsx           # Individual cell component
+│   │   ├── GameResult.tsx     # Game status display
+│   │   └── ResetButton.tsx     # Reset game button
+│   ├── types/
+│   │   └── game.ts            # TypeScript interfaces
+│   ├── App.tsx                 # Main app component
+│   └── main.tsx               # Entry point
+├── screenshots/               # Project screenshots
+└── package.json
+```
+
+## 🎮 How to Play
+
+1. **Red player** starts first
+2. Click on any column to drop your disc
+3. Discs fall to the lowest available position in that column
+4. Players alternate turns
+5. First player to get **4 discs in a row** (horizontal, vertical, or diagonal) wins!
+6. If the board fills up with no winner, it's a **draw**
+7. Click **Reset Game** to start over
+
+## 💻 Key Concepts Demonstrated
+
+- **React Hooks**: `useState` for game state management
+- **TypeScript**: Interfaces, types, and type safety
+- **Component Composition**: Building reusable components
+- **Game Logic**: Win detection algorithms, state management
+- **Event Handling**: Click handlers and state updates
+- **CSS Styling**: Modern UI with gradients and animations
+
+## 🎯 Game Logic
+
+### Win Detection
+The game checks for 4 in a row in all directions:
+- **Horizontal**: Left to right
+- **Vertical**: Top to bottom
+- **Diagonal (\)**: Top-left to bottom-right
+- **Diagonal (/)** : Top-right to bottom-left
+
+### Draw Detection
+The game detects a draw when:
+- The board is completely full (top row has no empty cells)
+- No player has won
+
+## 📝 License
+
+This project is open source and available for practice purposes.
