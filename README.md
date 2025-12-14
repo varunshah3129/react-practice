@@ -22,6 +22,15 @@ A classic Connect 4 game where two players compete to connect four discs in a ro
 
 ---
 
+### 3. [Security Code Input](./security-code-input/)
+A 4-digit security code input component for two-factor authentication with auto-advance, max attempts, and validation.
+
+**Technologies:** React, TypeScript, Vite, CSS
+
+[View Project Details →](./security-code-input/)
+
+---
+
 ## 🚀 Getting Started
 
 Each project is independent and can be run separately:
@@ -43,3 +52,4 @@ npm run dev
 - All projects use React + TypeScript + Vite
 - Check individual project READMEs for detailed documentation
 - Screenshots and project details are in each project's folder
+

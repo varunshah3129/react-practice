@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# Security Code Input
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A 4-digit security code input component for two-factor authentication (2FA). Features auto-advance between fields, backspace navigation, max attempts limit, and form validation.
 
-Currently, two official plugins are available:
+## 🚀 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **CSS** - Styling
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ 4 separate input fields for each digit
+- ✅ Only accepts digits 0-9 (rejects other input)
+- ✅ Auto-advance to next field on input
+- ✅ Backspace navigation to previous field
+- ✅ Paste support for 4-digit codes
+- ✅ Submit button disabled until all fields are filled
+- ✅ Maximum 4 attempts limit
+- ✅ Input fields disabled after max attempts
+- ✅ Reset button to clear attempts and inputs
+- ✅ Attempts counter display
+- ✅ Form validation against hardcoded code
 
-## Expanding the ESLint configuration
+## 📸 Screenshot
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Security Code Input](screenshots/security-code-input.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start development server
+npm run dev
 ```
+
+The app will be available at `http://localhost:5173`
+
+### Build
+
+```bash
+# Build for production
+npm run build
+```
+
+## 📁 Project Structure
+
+```
+security-code-input/
+├── src/
+│   ├── components/
+│   │   ├── SecurityCodeInput.tsx    # Main security code input component
+│   │   └── SecurityCodeInput.css     # Component styling
+│   ├── App.tsx                       # Main app component
+│   └── main.tsx                      # Entry point
+├── screenshots/                      # Project screenshots
+└── package.json
+```
+
+## 💻 Usage
+
+The component automatically handles:
+- Input validation (only 0-9)
+- Auto-focus and navigation
+- Attempt tracking
+- Form submission
+
+**Default valid code:** `6179`
+
+## 🎯 Key Concepts Demonstrated
+
+- **React Hooks**: `useState` for state management, `useRef` for DOM references
+- **TypeScript**: Type safety for inputs and state
+- **Form Handling**: Controlled inputs and form submission
+- **Event Handling**: Keyboard events (backspace), paste events
+- **Input Validation**: Regex patterns for digit-only input
+- **Accessibility**: ARIA labels and proper form structure
+- **User Experience**: Auto-advance, disabled states, visual feedback
+
+## 🔒 Security Features
+
+- Maximum 4 attempts before lockout
+- Input fields disabled after max attempts
+- Reset functionality to start over
+- Visual feedback for attempts remaining
+
+## 📝 License
+
+This project is open source and available for practice purposes.
